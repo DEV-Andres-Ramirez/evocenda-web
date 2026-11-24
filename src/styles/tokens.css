@@ -1,0 +1,70 @@
+/*
+ * Tokens de diseño de Evocenda.
+ * Base lila neón con un único color de "señal" (cian) y un tono cálido de apoyo.
+ * Todos los pares de texto cumplen contraste AA en ambos temas.
+ */
+
+:root {
+  color-scheme: light;
+
+  --bg: oklch(0.985 0.006 305);
+  --bg-deep: oklch(0.955 0.016 305);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.965 0.013 305);
+  --surface-3: oklch(0.935 0.022 305);
+  --line: oklch(0.21 0.045 295 / 0.1);
+  --line-strong: oklch(0.21 0.045 295 / 0.2);
+
+  --text: oklch(0.21 0.045 295);
+  --muted: oklch(0.455 0.045 295);
+  --faint: oklch(0.53 0.04 295);
+
+  /* accent: seguro para texto · neon: trazos, rellenos y brillos */
+  --accent: oklch(0.5 0.25 300);
+  --neon: oklch(0.64 0.25 303);
+  --signal: oklch(0.52 0.115 205);
+  --warm: oklch(0.53 0.21 355);
+  --on-accent: oklch(1 0 0);
+
+  --logo-a: #6417c4;
+  --logo-b: #a24bf5;
+  --logo-c: #0e8f9e;
+
+  --grid-dot: oklch(0.21 0.045 295 / 0.1);
+  --glow: oklch(0.64 0.25 303 / 0.26);
+  --glow-soft: oklch(0.64 0.25 303 / 0.12);
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 0.7) inset, 0 18px 40px -24px oklch(0.4 0.2 300 / 0.35);
+  --shadow-float: 0 24px 60px -28px oklch(0.4 0.2 300 / 0.45);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: oklch(0.135 0.028 295);
+  --bg-deep: oklch(0.105 0.024 295);
+  --surface: oklch(0.175 0.034 295);
+  --surface-2: oklch(0.215 0.04 295);
+  --surface-3: oklch(0.26 0.048 295);
+  --line: oklch(0.96 0.02 300 / 0.09);
+  --line-strong: oklch(0.96 0.02 300 / 0.18);
+
+  --text: oklch(0.965 0.01 300);
+  --muted: oklch(0.76 0.035 300);
+  --faint: oklch(0.62 0.04 300);
+
+  --accent: oklch(0.78 0.175 305);
+  --neon: oklch(0.68 0.235 303);
+  --signal: oklch(0.86 0.125 195);
+  --warm: oklch(0.76 0.17 350);
+  --on-accent: oklch(0.135 0.028 295);
+
+  --logo-a: #8e3df2;
+  --logo-b: #c792ff;
+  --logo-c: #54eaea;
+
+  --grid-dot: oklch(0.96 0.02 300 / 0.1);
+  --glow: oklch(0.68 0.235 303 / 0.45);
+  --glow-soft: oklch(0.68 0.235 303 / 0.18);
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 0.05) inset, 0 24px 48px -28px oklch(0 0 0 / 0.8);
+  --shadow-float: 0 30px 70px -30px oklch(0 0 0 / 0.9);
+}
