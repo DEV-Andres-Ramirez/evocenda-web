@@ -38,7 +38,33 @@ JOBS = {
     "certificado-procesos-sostenibles": ("Certificado_Laboral-Andres_Ramirez.pdf", [(R(238, 795, 368, 815), WHITE)], [11], None),
 }
 
+# Documentos que llegan como imagen, sin capa de texto: no se puede buscar el dato,
+# así que las zonas van en píxeles sobre un tamaño conocido. Si el archivo cambia de
+# tamaño, el script se detiene para que alguien vuelva a medir las zonas.
+# nombre: (imagen, tamaño esperado, zonas [(x0, y0, x1, y1, color)])
+RASTER = {
+    # Se cubren el número de cédula y el código QR de verificación.
+    "diplomado-gen-ai": (
+        "671d0d14-63ed-48b3-9546-fd43c7f03edb.png",
+        (1122, 793),
+        [(606, 261, 744, 288, BAR), (84, 597, 202, 714, WHITE)],
+    ),
+}
+
 ok = True
+for name, (imagen, size, zonas) in RASTER.items():
+    pix = pymupdf.Pixmap(str(SRC / imagen))
+    if pix.alpha:
+        pix = pymupdf.Pixmap(pix, 0)
+    if (pix.width, pix.height) != size:
+        ok = False
+        print(f"{name}: la imagen mide {pix.width}x{pix.height} y se esperaba {size[0]}x{size[1]}; no se genera")
+        continue
+    for x0, y0, x1, y1, color in zonas:
+        pix.set_rect(pymupdf.IRect(x0, y0, x1, y1), tuple(round(c * 255) for c in color))
+    pix.save(OUT / f"{name}.png")
+    print(f"{name}: {pix.width}x{pix.height} | zonas cubiertas: {len(zonas)} (imagen sin texto: revisar a la vista)")
+
 for name, (pdf, extra, drop_images, clip) in JOBS.items():
     doc = pymupdf.open(SRC / pdf)
     page = doc[0]

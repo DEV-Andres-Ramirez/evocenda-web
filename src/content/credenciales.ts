@@ -4,9 +4,9 @@ import type { IconName } from "@/components/ui/icon";
  * Formación, certificados y logros.
  *
  * Privacidad: las vistas previas de los documentos están en `public/credenciales`
- * con el número de cédula cubierto. En el certificado de experiencia también se
- * cubren los datos personales y la firma de quien lo firma. Las referencias se
- * publican solo con nombre y cargo.
+ * con el número de cédula y los códigos QR de verificación cubiertos. En el
+ * certificado de experiencia también se cubren los datos personales y la firma de
+ * quien lo firma. Las referencias se publican solo con nombre y cargo.
  */
 export interface Titulo {
   id: string;
@@ -90,6 +90,12 @@ const certificados: Certificado[] = [
     fecha: "1 de octubre de 2026",
     datos: ["130 horas certificadas", "Bogotá D.C., Colombia"],
     icon: "sparkles",
+    imagen: {
+      src: "/credenciales/diplomado-gen-ai.webp",
+      width: 1122,
+      height: 793,
+      alt: "Certificado de Red SUMMA Education: Andrés David Ramírez Albarracín cursó y aprobó el Diplomado Internacional GEN-AI para la Gestión Empresarial, con una duración de 130 horas, expedido en Bogotá D.C. el 1 de octubre de 2026. El número de cédula está cubierto.",
+    },
   },
   {
     id: "certificado-experiencia",

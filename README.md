@@ -78,6 +78,8 @@ python3 scripts/cv-publico.py            # CV sin datos sensibles → public/cv/
 
 Requieren Python con PyMuPDF y Google Chrome. Los dos scripts de Python terminan con error si algún dato sensible queda sin cubrir.
 
+El certificado del diplomado GEN-AI es la excepción: llega como imagen PNG, sin texto que se pueda buscar, así que sus zonas (cédula y código QR) van en coordenadas fijas dentro de `vistas-certificados.py`. El script se detiene si la imagen cambia de tamaño, pero no puede comprobar el resultado por sí solo: hay que mirar `public/credenciales/diplomado-gen-ai.webp` cada vez que se regenere.
+
 `scripts/og.html` es la plantilla de la imagen para compartir (`public/og.png`): se abre a 1200 × 630 px y se captura.
 
 ## Notas técnicas

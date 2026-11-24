@@ -1058,8 +1058,8 @@ export async function getMatrizEvidencia(): Promise<TipoEvidencia[]> {
       descripcion: "Formación certificada en IA generativa y experiencia en formación en IA.",
       icon: "badge-check",
       enlaces: [
-        { label: "Diplomado GEN-AI · 130 h", href: "/#credenciales" },
-        { label: "Certificado de experiencia", href: "/#credenciales" },
+        { label: "Diplomado GEN-AI · 130 h", href: "/#certificados" },
+        { label: "Certificado de experiencia", href: "/#certificados" },
       ],
     },
     {

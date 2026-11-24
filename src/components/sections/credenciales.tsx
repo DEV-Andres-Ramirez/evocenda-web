@@ -54,8 +54,8 @@ export async function Credenciales() {
           </ol>
         </div>
 
-        {/* Certificados */}
-        <div className="mt-16">
+        {/* Certificados: ancla propia para llegar directo desde la matriz de evidencia */}
+        <div id="certificados" tabIndex={-1} className="mt-16 scroll-mt-28">
           <Eyebrow className="reveal">Certificados</Eyebrow>
           <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
             {certificados.map((certificado, index) => (
@@ -95,9 +95,9 @@ export async function Credenciales() {
                     >
                       <div className="lattice absolute inset-0" />
                       <div className="absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_50%,var(--glow-soft),transparent)]" />
-                      <div className="relative text-center">
-                        <p className="display text-gradient text-[clamp(2.8rem,6vw,4rem)] leading-none">130 h</p>
-                        <p className="eyebrow mt-3 text-[0.64rem]">IA generativa · GEN-AI</p>
+                      <div className="relative grid justify-items-center text-center">
+                        <Icon name={certificado.icon} size={44} className="text-accent" />
+                        <p className="eyebrow mt-4 text-[0.64rem]">{certificado.emisor}</p>
                       </div>
                     </div>
                   )}
